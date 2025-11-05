@@ -1,30 +1,54 @@
+/* ===== Global Reset ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* ===== Imports ===== */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
 
-/* ===== Header ===== */
-/* Base Header Styles */
+/* ===== Body ===== */
+body {
+    background-color: rosybrown;
+    color: #FAE0E4;
+    font-size: 20px;
+    font-family: "Marilyn", serif;
+    line-height: 1.6;
+    padding: 0 1rem;
+    margin: 0;
+}
+
+.centered {
+    text-align: center;
+}
+
+.left-aligned {
+    text-align: left;
+}
+
+/* ===== Header Container ===== */
 .site-header {
+    position: relative;
     color: #333333;
     background-image: url("KissesPhoto.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* Fill the header smoothly */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* nav sits at bottom */
     align-items: center;
     text-align: center;
     font-family: "Lobster", cursive;
-    font-weight: bold;
     border: 5px solid #333333;
-    box-sizing: border-box;
     width: 100%;
     height: 250px;
-    padding: 40px;
-    margin: 0;
+    padding: 40px 20px 0 20px;
 }
 
-/* Header Text */
+/* ===== Header Text ===== */
 .header-tile h1 {
     font-size: 64px;
     margin: 0;
@@ -32,15 +56,49 @@
 }
 
 .header-tile p {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
     margin-top: 10px;
 }
 
-/* Responsive Adjustments */
+/* ===== Navigation Bar (Bottom of Header) ===== */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.45);
+
+}
+
+/* ===== Nav Links ===== */
+.navbar a {
+    color: #333333;
+    font-family: "Lobster", cursive;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #FF0A54;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.navbar a:active {
+    background-color: #FF477E;
+}
+
+/* ===== Responsive Header & Nav ===== */
 @media (max-width: 900px) {
     .site-header {
         height: 200px;
-        padding: 30px;
     }
 
     .header-tile h1 {
@@ -52,116 +110,182 @@
     }
 }
 
-@media (max-width: 600px) {
-    .site-header {
-        height: auto;
-        padding: 20px;
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem 0.5rem;
     }
 
-    .header-tile h1 {
-        font-size: 36px;
+    .navbar a {
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
-    .header-tile p {
-        font-size: 16px;
+    .navbar a:hover {
+        background-color: #FF5C8A;
     }
 }
 
-/* ===== Body ===== */
-.intro {
-    max-width: 500px;
-    text-align: right;
-}
-
-body {
-    background-color: rosybrown;
-    color: #FAE0E4;
-    font-size: 25px;
-    font-family: "Marilyn", serif;
-    margin-top: 50px;
-}
-
+/* ===== Main Content ===== */
 h1 {
-    font-family: "Lobster";
-    font-size: 33px;
+    font-family: "Lobster", cursive;
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 2rem 0 1rem;
 }
 
+p {
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+/* ===== Lists ===== */
+ol,
+ul {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Links ===== */
+a:link {
+    color: #515050;
+}
+
+a:visited {
+    color: #27191b;
+}
+
+a:hover {
+    color: #5c011b;
+    text-decoration: none;
+}
+
+a:active {
+    color: #0c040c;
+}
+
+.link-resize {
+    font-size: 0.9rem;
+    text-align: center;
+    display: block;
+    margin: 1rem 0;
+}
+
+/* ===== Images ===== */
 .thick-photo-border {
+    display: block;
+    max-width: 90%;
+    height: auto;
+    margin: 2rem auto;
     border: thick solid #333333;
     padding: 10px;
+    border-radius: 12px;
 }
-
 
 /* ===== Footer ===== */
 footer {
     color: #FAE0E4;
-    font-size: 14px;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: .5rem .5rem;
 }
 
-.darkfont {
-    color: #333333;
-}
-
-/* ===== Art ===== */
+/* ===== Gradient Stripe ===== */
 .stripe {
     height: 30px;
     background: linear-gradient(to right,
-            #FF0A54,
-            #FF0A54 20%,
-            #FF477E 20%,
-            #FF477E 40%,
-            #FF5C8A 40%,
-            #FF5C8A 60%,
-            #FF7096 60%,
-            #FF7096 80%,
-            #FF85A1 80%,
-            #FF85A1);
-    margin: 20px 20px 20px 20px;
+            #FF0A54, #FF0A54 20%,
+            #FF477E 20%, #FF477E 40%,
+            #FF5C8A 40%, #FF5C8A 60%,
+            #FF7096 60%, #FF7096 80%,
+            #FF85A1 80%, #FF85A1);
+    margin: 2rem auto;
+    max-width: 90%;
+    border-radius: 8px;
 }
 
+/* ===== Forms ===== */
+form {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
 
-/* ===== Links (global) ===== */
-a:link {
+fieldset {
+    border: 2px solid #FF85A1;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+legend {
+    font-size: 1.2rem;
     color: #FF0A54;
+    margin-bottom: 0.5rem;
 }
 
-a:visited {
-    color: #fbb1bd;
+input[type="radio"] {
+    margin-right: 0.5rem;
 }
 
-a:hover {
-    color: #FF5C8A;
-    text-decoration: none;
-    /* Remove underline on hover */
+input[type="submit"] {
+    background-color: #FF477E;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-a:active {
-    color: #F7CAD0;
+input[type="submit"]:hover {
+    background-color: #FF7096;
 }
 
-.link-resize {
-    font-size: 10px;
+/* ===== Responsive Layout ===== */
+@media (max-width: 900px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p,
+    ol,
+    ul {
+        max-width: 90%;
+    }
 }
 
-/* ===== Centering ===== */
-.centered {
-    text-align: center;
-}
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
 
-.centeredfonts {
-    text-align: center;
-    font-style: italic;
-}
+    h1 {
+        font-size: 1.5rem;
+    }
 
-.centeredfonts-small {
-    font-size: 20px;
-}
+    form {
+        padding: 1rem;
+    }
 
-.centeredcolor {
-    color: #FF0A54;
-}
-
-.centeredcolor2 {
-    color: #FF477E;
+    .thick-photo-border {
+        max-width: 100%;
+    }
 }
