@@ -5,54 +5,54 @@
     padding: 0;
 }
 
-/* ===== Imports ===== */
+/* ===== Fonts ===== */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
 
-/* ===== Body ===== */
+/* ===== Body & Main ===== */
 body {
-    background-color: rosybrown;
-    color: #FAE0E4;
+    background: linear-gradient(135deg, #ff5ac4, #ff9af1, #ffe6ff);
+    background-size: cover;
+    background-attachment: fixed;
     font-size: 20px;
-    font-family: "Marilyn", serif;
+    font-family: "Lobster", serif;
     line-height: 1.6;
+    color: #333333;
+    overflow-x: hidden;
+}
+
+main {
     padding: 0 1rem;
-    margin: 0;
 }
 
 .centered {
     text-align: center;
 }
 
-.left-aligned {
-    text-align: left;
-}
-
-/* ===== Header Container ===== */
+/* ===== Header ===== */
 .site-header {
     position: relative;
-    color: #333333;
-    background-image: url("KissesPhoto.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* nav sits at bottom */
     align-items: center;
     text-align: center;
     font-family: "Lobster", cursive;
-    border: 5px solid #333333;
     width: 100%;
     height: 250px;
     padding: 40px 20px 0 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* ===== Header Text ===== */
 .header-tile h1 {
     font-size: 64px;
     margin: 0;
     line-height: 1.1;
+    background: linear-gradient(45deg, #ff00c8, #00eaff, #ffea00);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .header-tile p {
@@ -61,7 +61,7 @@ body {
     margin-top: 10px;
 }
 
-/* ===== Navigation Bar (Bottom of Header) ===== */
+/* ===== Nav ===== */
 .navbar {
     width: 100%;
     display: flex;
@@ -69,11 +69,8 @@ body {
     gap: 1.5rem;
     flex-wrap: wrap;
     padding: 0.75rem 1rem;
-    background-color: rgba(255, 255, 255, 0.45);
-
 }
 
-/* ===== Nav Links ===== */
 .navbar a {
     color: #333333;
     font-family: "Lobster", cursive;
@@ -95,55 +92,13 @@ body {
     background-color: #FF477E;
 }
 
-/* ===== Responsive Header & Nav ===== */
-@media (max-width: 900px) {
-    .site-header {
-        height: 200px;
-    }
-
-    .header-tile h1 {
-        font-size: 48px;
-    }
-
-    .header-tile p {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 700px) {
-    .navbar {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 1rem 0.5rem;
-    }
-
-    .navbar a {
-        font-size: 1rem;
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem;
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar a:hover {
-        background-color: #FF5C8A;
-    }
-}
-
-/* ===== Main Content ===== */
-h1 {
-    font-family: "Lobster", cursive;
-    font-size: 2.2rem;
-    text-align: center;
-    margin: 2rem 0 1rem;
-}
-
-p {
-    margin-bottom: 1rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* ===== Rainbow Borders ===== */
+.border-rainbow {
+    border: 4px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(45deg, #ff00c8, #00eaff, #ffea00);
+    border-radius: 12px;
 }
 
 /* ===== Lists ===== */
@@ -156,31 +111,6 @@ ul {
 
 li {
     margin-bottom: 1.5rem;
-}
-
-/* ===== Links ===== */
-a:link {
-    color: #515050;
-}
-
-a:visited {
-    color: #27191b;
-}
-
-a:hover {
-    color: #5c011b;
-    text-decoration: none;
-}
-
-a:active {
-    color: #0c040c;
-}
-
-.link-resize {
-    font-size: 0.9rem;
-    text-align: center;
-    display: block;
-    margin: 1rem 0;
 }
 
 /* ===== Images ===== */
@@ -196,96 +126,58 @@ a:active {
 
 /* ===== Footer ===== */
 footer {
-    color: #FAE0E4;
+    color: #333333;
     font-size: 0.9rem;
     text-align: center;
     padding: .5rem .5rem;
 }
 
-/* ===== Gradient Stripe ===== */
-.stripe {
-    height: 30px;
-    background: linear-gradient(to right,
-            #FF0A54, #FF0A54 20%,
-            #FF477E 20%, #FF477E 40%,
-            #FF5C8A 40%, #FF5C8A 60%,
-            #FF7096 60%, #FF7096 80%,
-            #FF85A1 80%, #FF85A1);
-    margin: 2rem auto;
-    max-width: 90%;
-    border-radius: 8px;
-}
-
-/* ===== Forms ===== */
-form {
-    max-width: 800px;
-    margin: 2rem auto;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 12px;
-}
-
-fieldset {
-    border: 2px solid #FF85A1;
-    padding: 1.5rem;
-    border-radius: 12px;
-}
-
-legend {
-    font-size: 1.2rem;
-    color: #FF0A54;
-    margin-bottom: 0.5rem;
-}
-
-input[type="radio"] {
-    margin-right: 0.5rem;
-}
-
-input[type="submit"] {
-    background-color: #FF477E;
+/* ===== Mood Bubbles ===== */
+.mood-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #ff00c8, #00eaff);
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
     color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
+    font-weight: bold;
+    animation: floatUp 2.5s ease-out;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.7);
+    z-index: 9999;
 }
 
-input[type="submit"]:hover {
-    background-color: #FF7096;
-}
-
-/* ===== Responsive Layout ===== */
-@media (max-width: 900px) {
-    body {
-        font-size: 18px;
+@keyframes floatUp {
+    from {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
     }
 
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    p,
-    ol,
-    ul {
-        max-width: 90%;
+    to {
+        transform: translateY(-80px) scale(1);
+        opacity: 1;
     }
 }
 
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
+/* ===== Sparkles ===== */
+.sparkle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, white, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleFade 0.7s ease-out;
+}
+
+@keyframes sparkleFade {
+    from {
+        transform: scale(1.4);
+        opacity: 1;
     }
 
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    form {
-        padding: 1rem;
-    }
-
-    .thick-photo-border {
-        max-width: 100%;
+    to {
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
     }
 }
