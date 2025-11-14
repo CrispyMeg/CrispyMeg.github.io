@@ -33,16 +33,18 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     text-align: center;
     font-family: "Lobster", cursive;
+    border: 5px solid #333333;
     width: 100%;
-    height: 250px;
-    padding: 40px 20px 0 20px;
+    min-height: 300px;
+    padding: 2rem 1rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.3);
 }
 
 .header-tile h1 {
@@ -53,12 +55,48 @@ main {
     -webkit-background-clip: text;
     color: transparent;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: neonBounce 2s infinite alternate;
 }
 
 .header-tile p {
     font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
+    text-shadow: 0 0 8px #ff00c8, 0 0 12px #00eaff;
+}
+
+/* ===== Header shimmer overlay ===== */
+.site-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 60%);
+    pointer-events: none;
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-50%);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(-50%);
+    }
+}
+
+@keyframes neonBounce {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px #ff00c8, 0 0 20px #00eaff;
+        transform: translateY(0);
+    }
+
+    50% {
+        text-shadow: 0 0 20px #ffea00, 0 0 30px #ff00c8;
+        transform: translateY(-8px) scale(1.05);
+    }
 }
 
 /* ===== Nav ===== */
@@ -69,6 +107,8 @@ main {
     gap: 1.5rem;
     flex-wrap: wrap;
     padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.45);
+    z-index: 10;
 }
 
 .navbar a {
@@ -85,7 +125,8 @@ main {
 .navbar a:hover {
     background-color: #FF0A54;
     color: #fff;
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(-2deg);
+    text-shadow: 0 0 8px #ff00c8, 0 0 16px #00eaff, 0 0 24px #ffea00;
 }
 
 .navbar a:active {
@@ -130,6 +171,20 @@ footer {
     font-size: 0.9rem;
     text-align: center;
     padding: .5rem .5rem;
+}
+
+/* ===== Stripe ===== */
+.stripe {
+    height: 30px;
+    background: linear-gradient(to right,
+            #FF0A54, #FF0A54 20%,
+            #FF477E 20%, #FF477E 40%,
+            #FF5C8A 40%, #FF5C8A 60%,
+            #FF7096 60%, #FF7096 80%,
+            #FF85A1 80%, #FF85A1);
+    margin: 2rem auto;
+    max-width: 90%;
+    border-radius: 8px;
 }
 
 /* ===== Mood Bubbles ===== */
@@ -179,5 +234,52 @@ footer {
     to {
         transform: scale(0) rotate(45deg);
         opacity: 0;
+    }
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 900px) {
+    .site-header {
+        min-height: 220px;
+        padding: 1.5rem 1rem;
+    }
+
+    .header-tile h1 {
+        font-size: 48px;
+    }
+
+    .header-tile p {
+        font-size: 18px;
+    }
+
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .site-header {
+        min-height: 180px;
+        padding: 1rem 0.5rem;
+    }
+
+    .header-tile h1 {
+        font-size: 36px;
+    }
+
+    .header-tile p {
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
     }
 }
